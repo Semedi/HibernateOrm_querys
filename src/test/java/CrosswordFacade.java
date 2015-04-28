@@ -10,6 +10,8 @@ import es.ucm.abd.practica2.model.cruciContDef;
 
 
 public class CrosswordFacade implements AbstractCrosswordFacade<Crucigrama, Definicion> {
+	
+
 
 	@Override
 	public Crucigrama newCrossword(String title, Date date) {
@@ -67,10 +69,10 @@ public class CrosswordFacade implements AbstractCrosswordFacade<Crucigrama, Defi
 	}
 
 	@Override
-	public List<Object[]> getWordsOfCrossword(Crucigrama crossword) {
+	public ArrayList<Object[]> getWordsOfCrossword(Crucigrama crossword) {
 		// TODO Auto-generated method stub
 		
-		List <Object[]> lista = new ArrayList<Object[]>();
+		ArrayList <Object[]> lista = new ArrayList<Object[]>();
 		Object[] o = new Object[4];
 		
 		

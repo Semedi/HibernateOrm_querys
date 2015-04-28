@@ -231,6 +231,8 @@ abstract public class CrosswordTestBase<C,W> {
     
     @Test 
     public void checkCrosswordWords() {
+    	
+    	
         List<String> otherWords = new LinkedList<>();
         List<String> myWords = new LinkedList<>();
         List<Object[]> info = facade.getWordsOfCrossword(cw);

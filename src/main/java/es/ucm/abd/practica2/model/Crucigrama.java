@@ -4,6 +4,8 @@ import java.util.ArrayList;
 //import java.sql.Date;
 import java.util.Date;
 public class Crucigrama {
+	
+	
 	private int id;
 	private String titulo;
 	private Date fechaCreacion;
@@ -15,17 +17,26 @@ public class Crucigrama {
 	
 	
 	public Crucigrama(int id, String titulo, Date fecha){
+		
 		this.id=id;
 		this.titulo=titulo;
 		this.fechaCreacion=fecha;
+		contiene = new ArrayList<cruciContDef>();
+		
 	}
 	
 	
+	
+
 	public Crucigrama(String titulo, Date fecha) {
 		// TODO Auto-generated constructor stub
+		
 		this.titulo=titulo;
 		this.fechaCreacion=fecha;
+		contiene = new ArrayList<cruciContDef>();
 	}
+
+
 
 
 	public int getIdCrucigrama(){
