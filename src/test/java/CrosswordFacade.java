@@ -29,12 +29,17 @@ public class CrosswordFacade implements AbstractCrosswordFacade<Crucigrama, Defi
 	public void addWordToCrossword(Crucigrama crossword, Definicion word,
 			int row, int column, Orientation orientation) {
 		// TODO Auto-generated method stub
+		
 		int idC = crossword.getIdCrucigrama();
 		int idD = word.getIdDef();
 		
+		String respuesta = word.getRespuesta();
+			
+		cruciContDef relacion = new cruciContDef(idC,idD,orientation,row,column, respuesta);
+		
 	
 		
-		crossword.add(new cruciContDef(idC,idD,orientation,row,column, word.getRespuesta()));
+		crossword.add(relacion);
 		
 	}
 
@@ -69,18 +74,21 @@ public class CrosswordFacade implements AbstractCrosswordFacade<Crucigrama, Defi
 	}
 
 	@Override
-	public ArrayList<Object[]> getWordsOfCrossword(Crucigrama crossword) {
+	public List<Object[]> getWordsOfCrossword(Crucigrama crossword) {
 		// TODO Auto-generated method stub
 		
-		ArrayList <Object[]> lista = new ArrayList<Object[]>();
-		Object[] o = new Object[4];
+		List <Object[]> lista = new ArrayList<Object[]>();
+		
 		
 		
 		for (cruciContDef r: crossword.getContiene()){	
-			o[0] = r.getRespuestaCrucigrama();
-			o[1] = (Integer)r.getX();
-			o[2] = (Integer)r.getY();
-			o[3] = r.getOrientacion();
+			
+			
+			Object[] o = new Object[]{  r.getRespuestaCrucigrama(), 
+										(Integer)r.getX(), 
+										(Integer)r.getY(),
+										r.getOrientacion()};
+		
 			
 			lista.add(o);		
 		}

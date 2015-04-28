@@ -216,6 +216,7 @@ abstract public class CrosswordTestBase<C,W> {
 
     
     public void compareDates(String str, Date expected, Date actual) {
+    	
         Calendar cal1 = Calendar.getInstance(), cal2 = Calendar.getInstance();
         cal1.setTime(expected);
         cal2.setTime(actual);
@@ -235,12 +236,16 @@ abstract public class CrosswordTestBase<C,W> {
     	
         List<String> otherWords = new LinkedList<>();
         List<String> myWords = new LinkedList<>();
+        
         List<Object[]> info = facade.getWordsOfCrossword(cw);
         
         for (Object[] o : info) {
+        	
             assertTrue("El primer elemento de los arrays ha de ser una cadena", o[0] instanceof String);
             otherWords.add((String)o[0]);
         }
+        
+        
         for (String[] w: wordStrings) myWords.add(w[0]);
         
         compareModuloPermutation("Palabras de un crucigrama", myWords, otherWords);

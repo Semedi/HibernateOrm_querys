@@ -1,6 +1,7 @@
 package es.ucm.abd.practica2.model;
 
 public class cruciContDef {
+	
 	private int id_crucigrama;
 	private int id_definicion;
 	private Orientation orientacion;
@@ -10,14 +11,7 @@ public class cruciContDef {
 	
 	private String respuestaCrucigrama;
 	
-	public cruciContDef(int idC, int idD, Orientation o, int x, int y){
-		this.id_crucigrama=idC;
-		this.id_definicion=idD;
-		this.orientacion=o;
-		this.X=x;
-		this.Y=y;
-	}
-	
+
 	
 	public cruciContDef(int idC, int idD, Orientation o, int x, int y, String respuestaCrucigrama){
 		this.id_crucigrama=idC;
@@ -25,7 +19,7 @@ public class cruciContDef {
 		this.orientacion=o;
 		this.X=x;
 		this.Y=y;
-		this.setRespuestaCrucigrama(respuestaCrucigrama);
+		this.respuestaCrucigrama= respuestaCrucigrama;
 	}
 	
 	
@@ -58,7 +52,5 @@ public class cruciContDef {
 	}
 
 
-	public void setRespuestaCrucigrama(String respuestaCrucigrama) {
-		this.respuestaCrucigrama = respuestaCrucigrama;
-	}
+
 }
