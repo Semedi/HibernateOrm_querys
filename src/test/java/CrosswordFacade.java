@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,7 +29,11 @@ public class CrosswordFacade implements AbstractCrosswordFacade<Crucigrama, Defi
 		// TODO Auto-generated method stub
 		int idC = crossword.getIdCrucigrama();
 		int idD = word.getIdDef();
-		new cruciContDef(idC,idD,orientation,row,column);
+		
+	
+		
+		crossword.add(new cruciContDef(idC,idD,orientation,row,column, word.getRespuesta()));
+		
 	}
 
 	@Override
@@ -64,7 +69,24 @@ public class CrosswordFacade implements AbstractCrosswordFacade<Crucigrama, Defi
 	@Override
 	public List<Object[]> getWordsOfCrossword(Crucigrama crossword) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		List <Object[]> lista = new ArrayList<Object[]>();
+		Object[] o = new Object[4];
+		
+		
+		for (cruciContDef r: crossword.getContiene()){	
+			o[0] = r.getRespuestaCrucigrama();
+			o[1] = (Integer)r.getX();
+			o[2] = (Integer)r.getY();
+			o[3] = r.getOrientacion();
+			
+			lista.add(o);		
+		}
+			
+		
+		
+		
+		return lista;
 	}
 
 	@Override

@@ -1,11 +1,18 @@
 package es.ucm.abd.practica2.model;
 
+import java.util.ArrayList;
 //import java.sql.Date;
 import java.util.Date;
 public class Crucigrama {
 	private int id;
 	private String titulo;
 	private Date fechaCreacion;
+	
+
+	
+	private ArrayList<cruciContDef> contiene;
+	
+	
 	
 	public Crucigrama(int id, String titulo, Date fecha){
 		this.id=id;
@@ -39,5 +46,24 @@ public class Crucigrama {
 	public void setFecha(Date fecha){
 		this.fechaCreacion=fecha;
 	}
+
+
+
+
+	public void add(cruciContDef relacion) {
+		// TODO Auto-generated method stub
+		contiene.add(relacion);
+	}
+	
+	
+	public ArrayList<cruciContDef> getContiene(){
+		
+		return contiene;
+	}
+
+
+	
+
+
 
 }

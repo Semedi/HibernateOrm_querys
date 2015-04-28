@@ -6,6 +6,9 @@ public class Definicion {
 	private String respuesta;
 	private byte[] imagen;
 	private String[] etiquetas;
+	
+	
+	
 	public Definicion(){
 		
 	}
