@@ -11,8 +11,8 @@
     <property name="show_sql">true</property>
     <property name="hbm2ddl.auto">create</property>
     
-    <mapping class="es.ucm.abd.practica2.model.Crossword"/>
-    <mapping class="es.ucm.abd.practica2.model.Word"/>
-    <mapping class="es.ucm.abd.practica2.model.WordOccurrence"/>
+    <mapping class="es.ucm.abd.practica2.model.Crucigrama"/>
+    <mapping class="es.ucm.abd.practica2.model.Definicion"/>
+    <mapping class="es.ucm.abd.practica2.model.cruciContDef"/>
   </session-factory>
 </hibernate-configuration>

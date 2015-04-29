@@ -3,6 +3,7 @@ import java.util.Date;
 import java.util.List;
 
 import es.ucm.abd.practica2.dao.AbstractCrosswordDAO;
+import es.ucm.abd.practica2.dao.crosswordDAO;
 import es.ucm.abd.practica2.model.Crucigrama;
 import es.ucm.abd.practica2.model.Definicion;
 import es.ucm.abd.practica2.model.Orientation;
@@ -31,11 +32,11 @@ public class CrosswordFacade implements AbstractCrosswordFacade<Crucigrama, Defi
 		// TODO Auto-generated method stub
 	
 			
-		
+		/*Creamos el objeto de relacion */
 		cruciContDef relacion = new cruciContDef(word, crossword, orientation , row, column);
 	
-		
-		crossword.add(relacion);
+		//añadimos las correspondientes relaciones (uno a muchos)
+	    crossword.add(relacion);
 		word.add(relacion);
 		
 	}
@@ -99,7 +100,7 @@ public class CrosswordFacade implements AbstractCrosswordFacade<Crucigrama, Defi
 	@Override
 	public AbstractCrosswordDAO<Crucigrama, Definicion> createDAO() {
 		// TODO Auto-generated method stub
-		return null;
+		return new crosswordDAO();
 	}
 
 }

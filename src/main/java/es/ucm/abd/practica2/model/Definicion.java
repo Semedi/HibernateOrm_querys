@@ -1,33 +1,44 @@
 package es.ucm.abd.practica2.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 
 
 @Entity
+@Table(name = "Definicion")
 public class Definicion {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int _id;
+	private Integer _id;
 	
 	
-	@Column
+	@Column(nullable = false, length = 200)
 	private String _enunciado;
 	
-	
+	@Column(nullable = false, length = 50)
 	private String _respuesta;
+	
+	@Lob
 	private byte[] _imagen;
+	
+	@Column(nullable = false)
 	private String[] _etiquetas;
 	
 	
-	private ArrayList<cruciContDef> _contiene;
+	@OneToMany
+	private List<cruciContDef> _contiene;
 	
 	
 	
@@ -109,7 +120,7 @@ public class Definicion {
 	}
 	
 	
-	public ArrayList<cruciContDef> getContiene(){
+	public List<cruciContDef> getContiene(){
 		
 		return this._contiene;
 	}

@@ -9,10 +9,8 @@ public class CrosswordTest extends CrosswordTestBase<Crucigrama, Definicion>{
 	protected AbstractCrosswordFacade buildFacade() {
 		// TODO Auto-generated method stub
 		
-		CrosswordFacade f = new CrosswordFacade();
+		return new CrosswordFacade();
 		
-		
-		return f;
 	}
 
 }

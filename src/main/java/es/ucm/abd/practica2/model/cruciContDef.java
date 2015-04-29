@@ -1,28 +1,36 @@
 package es.ucm.abd.practica2.model;
 
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "cruciContDef")
 public class cruciContDef {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int _id;
+	private Integer _id;
 	
-	
+	@ManyToOne
 	private Crucigrama _crucigrama;
 	
+	@ManyToOne
 	private Definicion _definicion;
 	
-	
+	@Enumerated
 	private Orientation _orientacion;
 	
-	
+	@Column(nullable = false)
 	private int _X;
-	
+		
+	@Column(nullable = false)
 	private int _Y;
 	
 	

@@ -3,30 +3,37 @@ package es.ucm.abd.practica2.model;
 import java.util.ArrayList;
 //import java.sql.Date;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 
 @Entity
+@Table(name = "Crucigrama")
 public class Crucigrama {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int _id;
+	private Integer _id;
 	
-	@Column
+	@Column(nullable = false, length = 50)
 	private String _titulo;
 	
-	@Column
+	@Temporal(TemporalType.DATE)
 	private Date _fechaCreacion;
 	
-
-	@Transient
-	private ArrayList<cruciContDef> _contiene;
+	
+	@OneToMany
+	private List<cruciContDef> _contiene;
 	
 	
 	
@@ -87,7 +94,7 @@ public class Crucigrama {
 	}
 	
 	
-	public ArrayList<cruciContDef> getContiene(){
+	public List<cruciContDef> getContiene(){
 		
 		return this._contiene;
 	}
