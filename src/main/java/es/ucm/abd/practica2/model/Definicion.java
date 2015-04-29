@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
+
 import javax.persistence.Table;
+
 
 
 
@@ -32,13 +33,16 @@ public class Definicion {
 	
 	@Lob
 	private byte[] _imagen;
+
 	
 	@Column(nullable = false)
 	private String[] _etiquetas;
+
 	
 	
 	@OneToMany
 	private List<cruciContDef> _contiene;
+
 	
 	
 	
