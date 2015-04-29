@@ -1,58 +1,94 @@
 package es.ucm.abd.practica2.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class cruciContDef {
 	
-	private int id_crucigrama;
-	private int id_definicion;
-	private Orientation orientacion;
-	private int X;
-	private int Y;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int _id;
 	
 	
-	private String respuestaCrucigrama;
+	private Crucigrama _crucigrama;
 	
+	private Definicion _definicion;
+	
+	
+	private Orientation _orientacion;
+	
+	
+	private int _X;
+	
+	private int _Y;
+	
+	
+	/************CONSTRUCTORES*************/
 
 	public cruciContDef(){}
-	public cruciContDef(int idC, int idD, Orientation o, int x, int y, String respuestaCrucigrama){
-		this.id_crucigrama=idC;
-		this.id_definicion=idD;
-		this.orientacion=o;
-		this.X=x;
-		this.Y=y;
-		this.respuestaCrucigrama= respuestaCrucigrama;
+	
+	public cruciContDef(Definicion definicion, Crucigrama crucigrama, Orientation o, int x, int y){
+		
+		
+		this._definicion=definicion;
+		this._crucigrama=crucigrama;
+		this._orientacion=o;
+		this._X=x;
+		this._Y=y;
 	}
 	
 	
-	
-	public int getIdCruci(){
-		return this.id_crucigrama;
+	public cruciContDef(int id, Definicion definicion, Crucigrama crucigrama, Orientation o, int x, int y){
+		
+		this._id = id;
+		this._definicion=definicion;
+		this._crucigrama=crucigrama;
+		this._orientacion=o;
+		this._X=x;
+		this._Y=y;
+		
 	}
 	
+	/******************************************/
 	
+
+
 	
-	public int getIdDef(){
-		return this.id_definicion;
-	}
-	
-	
-	
+
 	public Orientation getOrientacion(){
-		return this.orientacion;
+		return this._orientacion;
 	}
 	public int getX(){
-		return this.X;
+		return this._X;
 	}
 	public int getY(){
-		return this.Y;
+		return this._Y;
+	}
+
+	public Crucigrama get_crucigrama() {
+		return _crucigrama;
+	}
+	
+	
+
+	public void setCrucigrama(Crucigrama _crucigrama) {
+		this._crucigrama = _crucigrama;
+	}
+
+	
+	public Definicion getDefinicion() {
+		return _definicion;
+	}
+
+	
+	public void setDefinicion(Definicion _definicion) {
+		this._definicion = _definicion;
 	}
 
 
-	public String getRespuestaCrucigrama() {
-		return respuestaCrucigrama;
-	}
 
 
 

@@ -6,6 +6,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
@@ -13,61 +15,67 @@ import javax.persistence.Transient;
 public class Crucigrama {
 	
 	@Id
-	@Column(name = "id_crucigrama")
-	private int id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int _id;
 	
 	@Column
-	private String titulo;
+	private String _titulo;
 	
 	@Column
-	private Date fechaCreacion;
+	private Date _fechaCreacion;
 	
 
 	@Transient
-	private ArrayList<cruciContDef> contiene;
+	private ArrayList<cruciContDef> _contiene;
 	
 	
-	public Crucigrama(){}
+	
+	
+	
+	/************CONSTRUCTORES*************/
+	public Crucigrama(){
+		this._contiene = new ArrayList<cruciContDef>();
+	}
 	public Crucigrama(int id, String titulo, Date fecha){
 		
-		this.id=id;
-		this.titulo=titulo;
-		this.fechaCreacion=fecha;
-		contiene = new ArrayList<cruciContDef>();
+		this._id=id;
+		this._titulo=titulo;
+		this._fechaCreacion=fecha;
+		this._contiene = new ArrayList<cruciContDef>();
 		
 	}
 	
 	
 	
-
 	public Crucigrama(String titulo, Date fecha) {
 		// TODO Auto-generated constructor stub
 		
-		this.titulo=titulo;
-		this.fechaCreacion=fecha;
-		contiene = new ArrayList<cruciContDef>();
+		this._titulo=titulo;
+		this._fechaCreacion=fecha;
+		this._contiene = new ArrayList<cruciContDef>();
 	}
 
 
+	/*****************************************************************/
 
 
 	public int getIdCrucigrama(){
-		return this.id;
+		return this._id;
 	}
 	public void setIdCrucigrama(int id){
-		this.id=id;
+		this._id=id;
 	}
 	public String getTitulo(){
-		return this.titulo;
+		return this._titulo;
 	}
 	public void setTitulo(String titulo){
-		this.titulo=titulo;
+		this._titulo=titulo;
 	}
 	public Date getFecha(){
-		return this.fechaCreacion;
+		return this._fechaCreacion;
 	}
 	public void setFecha(Date fecha){
-		this.fechaCreacion=fecha;
+		this._fechaCreacion=fecha;
 	}
 
 
@@ -75,13 +83,13 @@ public class Crucigrama {
 
 	public void add(cruciContDef relacion) {
 		// TODO Auto-generated method stub
-		contiene.add(relacion);
+		this._contiene.add(relacion);
 	}
 	
 	
 	public ArrayList<cruciContDef> getContiene(){
 		
-		return contiene;
+		return this._contiene;
 	}
 
 
