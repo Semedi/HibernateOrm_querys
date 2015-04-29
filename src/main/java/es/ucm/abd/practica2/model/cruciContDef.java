@@ -1,5 +1,8 @@
 package es.ucm.abd.practica2.model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class cruciContDef {
 	
 	private int id_crucigrama;
@@ -12,7 +15,7 @@ public class cruciContDef {
 	private String respuestaCrucigrama;
 	
 
-	
+	public cruciContDef(){}
 	public cruciContDef(int idC, int idD, Orientation o, int x, int y, String respuestaCrucigrama){
 		this.id_crucigrama=idC;
 		this.id_definicion=idD;

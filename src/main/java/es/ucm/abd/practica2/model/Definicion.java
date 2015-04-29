@@ -1,17 +1,30 @@
 package es.ucm.abd.practica2.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
+@Entity
 public class Definicion {
+	
+	@Id
+	@Column(name="id_definicion")
 	private int id;
+	
+	
+	@Column
 	private String enunciado;
+	
+	
 	private String respuesta;
 	private byte[] imagen;
 	private String[] etiquetas;
 	
 	
 	
-	public Definicion(){
-		
-	}
+	public Definicion(){	}
+	
 	public Definicion(int id, String enunciado, String respuesta, byte[]imagen, String[]etiquetas ){
 		this.id=id;
 		this.enunciado=enunciado;

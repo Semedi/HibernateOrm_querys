@@ -3,19 +3,31 @@ package es.ucm.abd.practica2.model;
 import java.util.ArrayList;
 //import java.sql.Date;
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
+@Entity
 public class Crucigrama {
 	
-	
+	@Id
+	@Column(name = "id_crucigrama")
 	private int id;
+	
+	@Column
 	private String titulo;
+	
+	@Column
 	private Date fechaCreacion;
 	
 
-	
+	@Transient
 	private ArrayList<cruciContDef> contiene;
 	
 	
-	
+	public Crucigrama(){}
 	public Crucigrama(int id, String titulo, Date fecha){
 		
 		this.id=id;
