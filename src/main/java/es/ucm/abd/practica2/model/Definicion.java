@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 
 
 
@@ -15,18 +17,22 @@ public class Definicion {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int _id;
+	private Integer _id;
 	
 	
-	@Column
+	@Column(nullable = false, length = 200)
 	private String _enunciado;
 	
-	
+	@Column(nullable = false, length = 50)
 	private String _respuesta;
+	
+	@Lob
 	private byte[] _imagen;
+	
+	@Column(nullable = false)
 	private String[] _etiquetas;
 	
-	
+	@OneToMany
 	private ArrayList<cruciContDef> _contiene;
 	
 	

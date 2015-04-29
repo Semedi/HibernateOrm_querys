@@ -9,23 +9,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 
 @Entity
 public class Crucigrama {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int _id;
+	private Integer _id;
 	
-	@Column
+	@Column(nullable = false, length = 50)
 	private String _titulo;
 	
-	@Column
+	@Temporal(TemporalType.DATE)
 	private Date _fechaCreacion;
 	
 
-	@Transient
+	@OneToMany
 	private ArrayList<cruciContDef> _contiene;
 	
 	

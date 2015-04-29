@@ -31,11 +31,11 @@ public class CrosswordFacade implements AbstractCrosswordFacade<Crucigrama, Defi
 		// TODO Auto-generated method stub
 	
 			
-		
+		/*Creamos el objeto de relacion */
 		cruciContDef relacion = new cruciContDef(word, crossword, orientation , row, column);
 	
-		
-		crossword.add(relacion);
+		//añadimos las correspondientes relaciones (uno a muchos)
+	    crossword.add(relacion);
 		word.add(relacion);
 		
 	}
