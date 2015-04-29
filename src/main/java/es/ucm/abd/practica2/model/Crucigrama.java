@@ -68,6 +68,8 @@ public class Crucigrama {
 	/*****************************************************************/
 
 
+	
+	
 	public int getIdCrucigrama(){
 		return this._id;
 	}
@@ -94,6 +96,9 @@ public class Crucigrama {
 		// TODO Auto-generated method stub
 		this._contiene.add(relacion);
 	}
+	
+	
+	
 	
 	
 	public List<cruciContDef> getContiene(){

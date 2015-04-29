@@ -13,7 +13,6 @@ import es.ucm.abd.practica2.model.cruciContDef;
 public class CrosswordFacade implements AbstractCrosswordFacade<Crucigrama, Definicion> {
 	
 
-
 	@Override
 	public Crucigrama newCrossword(String title, Date date) {
 		// TODO Auto-generated method stub
