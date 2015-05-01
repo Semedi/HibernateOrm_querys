@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
+
+
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,12 +20,15 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 
+
+
+
 @Entity
 public class Crucigrama {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	
 	
 	@Column(nullable = false, length = 50)
@@ -33,7 +40,7 @@ public class Crucigrama {
 	
 
 	
-	@OneToMany(mappedBy="crucigrama", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="crucigrama", cascade = CascadeType.REFRESH)
 	private List<cruciContDef> contiene;
 
 
@@ -45,7 +52,7 @@ public class Crucigrama {
 	public Crucigrama(){
 		this.contiene = new ArrayList<cruciContDef>();
 	}
-	public Crucigrama(int id, String titulo, Date fecha){
+	public Crucigrama(Integer id, String titulo, Date fecha){
 		
 		this.id=id;
 		this.titulo=titulo;
@@ -70,10 +77,10 @@ public class Crucigrama {
 
 	
 	
-	public int getIdCrucigrama(){
+	public Integer getIdCrucigrama(){
 		return this.id;
 	}
-	public void setIdCrucigrama(int id){
+	public void setIdCrucigrama(Integer id){
 		this.id=id;
 	}
 	public String getTitulo(){
@@ -94,7 +101,12 @@ public class Crucigrama {
 
 	public void add(cruciContDef relacion) {
 		// TODO Auto-generated method stub
+		
+		
+		
 		this.contiene.add(relacion);
+		
+		
 	}
 	
 	

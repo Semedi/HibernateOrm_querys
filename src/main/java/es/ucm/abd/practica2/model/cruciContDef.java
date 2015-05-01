@@ -2,6 +2,7 @@ package es.ucm.abd.practica2.model;
 
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
@@ -17,7 +18,7 @@ public class cruciContDef {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	
 	@ManyToOne
 	private Crucigrama crucigrama;
@@ -30,17 +31,17 @@ public class cruciContDef {
 	private Orientation orientacion;
 	
 	@Column(nullable = false)
-	private int X;
+	private Integer X;
 		
 	@Column(nullable = false)
-	private int Y;
+	private Integer Y;
 	
 	
 	/************CONSTRUCTORES*************/
 
 	public cruciContDef(){}
 	
-	public cruciContDef(Definicion definicion, Crucigrama crucigrama, Orientation o, int x, int y){
+	public cruciContDef(Definicion definicion, Crucigrama crucigrama, Orientation o, Integer x, Integer y){
 		
 		
 		this.definicion=definicion;
@@ -51,7 +52,7 @@ public class cruciContDef {
 	}
 	
 	
-	public cruciContDef(int id, Definicion definicion, Crucigrama crucigrama, Orientation o, int x, int y){
+	public cruciContDef(Integer id, Definicion definicion, Crucigrama crucigrama, Orientation o, Integer x, Integer y){
 		
 		this.id = id;
 		this.definicion=definicion;
@@ -71,10 +72,10 @@ public class cruciContDef {
 	public Orientation getOrientacion(){
 		return this.orientacion;
 	}
-	public int getX(){
+	public Integer getX(){
 		return this.X;
 	}
-	public int getY(){
+	public Integer getY(){
 		return this.Y;
 	}
 

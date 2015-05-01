@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,7 +22,7 @@ public class Definicion {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	
 	
 	@Column(nullable = false, length = 200)
@@ -40,7 +41,7 @@ public class Definicion {
 
 
 	
-	@OneToMany(mappedBy="definicion", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="definicion", cascade = CascadeType.REFRESH)
 	private List<cruciContDef> contiene;
 
 	
@@ -53,7 +54,7 @@ public class Definicion {
 		contiene = new ArrayList<cruciContDef>();
 	}
 	
-	public Definicion(int id, String enunciado, String respuesta, byte[]imagen, String[]etiquetas ){
+	public Definicion(Integer id, String enunciado, String respuesta, byte[]imagen, String[]etiquetas ){
 		this.id=id;
 		this.enunciado=enunciado;
 		this.respuesta=respuesta;
@@ -76,11 +77,11 @@ public class Definicion {
 	
 	
 	
-	public int getIdDef(){
+	public Integer getIdDef(){
 		return this.id;
 	}
 	
-	public void setId(int id){
+	public void setId(Integer id){
 		this.id=id;
 	}
 	
