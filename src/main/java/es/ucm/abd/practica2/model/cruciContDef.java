@@ -1,6 +1,7 @@
 package es.ucm.abd.practica2.model;
 
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
@@ -8,31 +9,31 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+
 
 
 @Entity
-@Table(name = "cruciContDef")
 public class cruciContDef {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer _id;
+	private int id;
 	
 	@ManyToOne
-	private Crucigrama _crucigrama;
+	private Crucigrama crucigrama;
 	
 	@ManyToOne
-	private Definicion _definicion;
+	private Definicion definicion;
+	
 	
 	@Enumerated
-	private Orientation _orientacion;
+	private Orientation orientacion;
 	
 	@Column(nullable = false)
-	private int _X;
+	private int X;
 		
 	@Column(nullable = false)
-	private int _Y;
+	private int Y;
 	
 	
 	/************CONSTRUCTORES*************/
@@ -42,22 +43,22 @@ public class cruciContDef {
 	public cruciContDef(Definicion definicion, Crucigrama crucigrama, Orientation o, int x, int y){
 		
 		
-		this._definicion=definicion;
-		this._crucigrama=crucigrama;
-		this._orientacion=o;
-		this._X=x;
-		this._Y=y;
+		this.definicion=definicion;
+		this.crucigrama=crucigrama;
+		this.orientacion=o;
+		this.X=x;
+		this.Y=y;
 	}
 	
 	
 	public cruciContDef(int id, Definicion definicion, Crucigrama crucigrama, Orientation o, int x, int y){
 		
-		this._id = id;
-		this._definicion=definicion;
-		this._crucigrama=crucigrama;
-		this._orientacion=o;
-		this._X=x;
-		this._Y=y;
+		this.id = id;
+		this.definicion=definicion;
+		this.crucigrama=crucigrama;
+		this.orientacion=o;
+		this.X=x;
+		this.Y=y;
 		
 	}
 	
@@ -68,33 +69,33 @@ public class cruciContDef {
 	
 
 	public Orientation getOrientacion(){
-		return this._orientacion;
+		return this.orientacion;
 	}
 	public int getX(){
-		return this._X;
+		return this.X;
 	}
 	public int getY(){
-		return this._Y;
+		return this.Y;
 	}
 
 	public Crucigrama get_crucigrama() {
-		return _crucigrama;
+		return crucigrama;
 	}
 	
 	
 
 	public void setCrucigrama(Crucigrama _crucigrama) {
-		this._crucigrama = _crucigrama;
+		this.crucigrama = _crucigrama;
 	}
 
 	
 	public Definicion getDefinicion() {
-		return _definicion;
+		return definicion;
 	}
 
 	
 	public void setDefinicion(Definicion _definicion) {
-		this._definicion = _definicion;
+		this.definicion = _definicion;
 	}
 
 

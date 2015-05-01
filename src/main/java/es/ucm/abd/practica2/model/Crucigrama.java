@@ -5,52 +5,52 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 
 @Entity
-@Table(name = "Crucigrama")
 public class Crucigrama {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer _id;
+	private int id;
+	
 	
 	@Column(nullable = false, length = 50)
-	private String _titulo;
+	private String titulo;
+	
 	
 	@Temporal(TemporalType.DATE)
-	private Date _fechaCreacion;
+	private Date fechaCreacion;
 	
 
 	
-	@OneToMany
-	private List<cruciContDef> _contiene;
+	@OneToMany(mappedBy="crucigrama", cascade = CascadeType.ALL)
+	private List<cruciContDef> contiene;
 
 
 	
 	
-	
-	
+
 	
 	/************CONSTRUCTORES*************/
 	public Crucigrama(){
-		this._contiene = new ArrayList<cruciContDef>();
+		this.contiene = new ArrayList<cruciContDef>();
 	}
 	public Crucigrama(int id, String titulo, Date fecha){
 		
-		this._id=id;
-		this._titulo=titulo;
-		this._fechaCreacion=fecha;
-		this._contiene = new ArrayList<cruciContDef>();
+		this.id=id;
+		this.titulo=titulo;
+		this.fechaCreacion=fecha;
+		this.contiene = new ArrayList<cruciContDef>();
 		
 	}
 	
@@ -59,9 +59,9 @@ public class Crucigrama {
 	public Crucigrama(String titulo, Date fecha) {
 		// TODO Auto-generated constructor stub
 		
-		this._titulo=titulo;
-		this._fechaCreacion=fecha;
-		this._contiene = new ArrayList<cruciContDef>();
+		this.titulo=titulo;
+		this.fechaCreacion=fecha;
+		this.contiene = new ArrayList<cruciContDef>();
 	}
 
 
@@ -71,22 +71,22 @@ public class Crucigrama {
 	
 	
 	public int getIdCrucigrama(){
-		return this._id;
+		return this.id;
 	}
 	public void setIdCrucigrama(int id){
-		this._id=id;
+		this.id=id;
 	}
 	public String getTitulo(){
-		return this._titulo;
+		return this.titulo;
 	}
 	public void setTitulo(String titulo){
-		this._titulo=titulo;
+		this.titulo=titulo;
 	}
 	public Date getFecha(){
-		return this._fechaCreacion;
+		return this.fechaCreacion;
 	}
 	public void setFecha(Date fecha){
-		this._fechaCreacion=fecha;
+		this.fechaCreacion=fecha;
 	}
 
 
@@ -94,7 +94,7 @@ public class Crucigrama {
 
 	public void add(cruciContDef relacion) {
 		// TODO Auto-generated method stub
-		this._contiene.add(relacion);
+		this.contiene.add(relacion);
 	}
 	
 	
@@ -103,7 +103,7 @@ public class Crucigrama {
 	
 	public List<cruciContDef> getContiene(){
 		
-		return this._contiene;
+		return this.contiene;
 	}
 
 

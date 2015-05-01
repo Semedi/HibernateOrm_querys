@@ -3,6 +3,7 @@ package es.ucm.abd.practica2.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,37 +12,36 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
-import javax.persistence.Table;
 
 
 
 
 @Entity
-@Table(name = "Definicion")
 public class Definicion {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer _id;
+	private int id;
 	
 	
 	@Column(nullable = false, length = 200)
-	private String _enunciado;
+	private String enunciado;
+	
 	
 	@Column(nullable = false, length = 50)
-	private String _respuesta;
+	private String respuesta;
 	
 	@Lob
-	private byte[] _imagen;
+	private byte[] imagen;
 
 	
 	@Column(nullable = false)
-	private String[] _etiquetas;
+	private String[] etiquetas;
+
 
 	
-	
-	@OneToMany
-	private List<cruciContDef> _contiene;
+	@OneToMany(mappedBy="definicion", cascade = CascadeType.ALL)
+	private List<cruciContDef> contiene;
 
 	
 	
@@ -50,24 +50,24 @@ public class Definicion {
 	/*******CONSTRUCTORES***********/
 	
 	public Definicion(){	
-		_contiene = new ArrayList<cruciContDef>();
+		contiene = new ArrayList<cruciContDef>();
 	}
 	
 	public Definicion(int id, String enunciado, String respuesta, byte[]imagen, String[]etiquetas ){
-		this._id=id;
-		this._enunciado=enunciado;
-		this._respuesta=respuesta;
-		this._imagen=imagen;
-		this._etiquetas=etiquetas;
-		this._contiene = new ArrayList<cruciContDef>();
+		this.id=id;
+		this.enunciado=enunciado;
+		this.respuesta=respuesta;
+		this.imagen=imagen;
+		this.etiquetas=etiquetas;
+		this.contiene = new ArrayList<cruciContDef>();
 	}
 	
 	public Definicion(String respuesta, String enunciado, String[] etiquetas) {
 		// TODO Auto-generated constructor stub
-		this._respuesta=respuesta;
-		this._enunciado=enunciado;
-		this._etiquetas=etiquetas;
-		this._contiene = new ArrayList<cruciContDef>();
+		this.respuesta=respuesta;
+		this.enunciado=enunciado;
+		this.etiquetas=etiquetas;
+		this.contiene = new ArrayList<cruciContDef>();
 	}
 	
 	
@@ -77,56 +77,56 @@ public class Definicion {
 	
 	
 	public int getIdDef(){
-		return this._id;
+		return this.id;
 	}
 	
 	public void setId(int id){
-		this._id=id;
+		this.id=id;
 	}
 	
 	public String getEnunciado(){
-		return this._enunciado;
+		return this.enunciado;
 	}
 	
 	public void setEnunciado(String enunciado){
-		this._enunciado=enunciado;
+		this.enunciado=enunciado;
 	}
 	
 	public String getRespuesta(){
-		return this._respuesta;
+		return this.respuesta;
 	}
 	
 	public void setRespuesta(String respuesta){
-		this._respuesta=respuesta;
+		this.respuesta=respuesta;
 	}
 	
 	public byte[] getImagen(){
-		return this._imagen;
+		return this.imagen;
 	}
 	
 	public void setImagen(byte [] imagen){
-		this._imagen=imagen;
+		this.imagen=imagen;
 	}
 	
 	public String[] getEtiquetas(){
-		return this._etiquetas;
+		return this.etiquetas;
 	}
 	
 	public void setEtiquetas(String[]etiquetas){
-		this._etiquetas=etiquetas;
+		this.etiquetas=etiquetas;
 		
 	}
 	
 		
 	public void add(cruciContDef relacion) {
 		// TODO Auto-generated method stub
-		this._contiene.add(relacion);
+		this.contiene.add(relacion);
 	}
 	
 	
 	public List<cruciContDef> getContiene(){
 		
-		return this._contiene;
+		return this.contiene;
 	}
 
 }
