@@ -1,9 +1,12 @@
 package es.ucm.abd.practica2.model;
 
-import java.util.ArrayList;
 //import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Date;
+//import java.sql.Date;
 import java.util.List;
+
+
 
 
 
@@ -35,12 +38,12 @@ public class Crucigrama {
 	private String titulo;
 	
 	
-	@Temporal(TemporalType.DATE)
+	@Column
 	private Date fechaCreacion;
 	
 
 	
-	@OneToMany(mappedBy="crucigrama", cascade = CascadeType.REFRESH)
+	@OneToMany(mappedBy="crucigrama", cascade = CascadeType.ALL)
 	private List<cruciContDef> contiene;
 
 
@@ -49,9 +52,7 @@ public class Crucigrama {
 
 	
 	/************CONSTRUCTORES*************/
-	public Crucigrama(){
-		this.contiene = new ArrayList<cruciContDef>();
-	}
+	public Crucigrama(){}
 	public Crucigrama(Integer id, String titulo, Date fecha){
 		
 		this.id=id;
@@ -63,18 +64,22 @@ public class Crucigrama {
 	
 	
 	
-	public Crucigrama(String titulo, Date fecha) {
+	public Crucigrama(String titulo, Date date) {
 		// TODO Auto-generated constructor stub
 		
 		this.titulo=titulo;
-		this.fechaCreacion=fecha;
+		this.fechaCreacion=date;
 		this.contiene = new ArrayList<cruciContDef>();
 	}
 
 
 	/*****************************************************************/
 
-
+	public String toString(){
+		
+		return "CRUCIGRAMA: "+this.getTitulo();
+		
+	}
 	
 	
 	public Integer getIdCrucigrama(){
@@ -109,6 +114,10 @@ public class Crucigrama {
 		
 	}
 	
+	public int getPalabras(){
+		
+		return contiene.size();
+	}
 	
 	
 	

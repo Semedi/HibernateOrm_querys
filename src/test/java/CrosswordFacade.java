@@ -34,9 +34,10 @@ public class CrosswordFacade implements AbstractCrosswordFacade<Crucigrama, Defi
 		/*Creamos el objeto de relacion */
 		cruciContDef relacion = new cruciContDef(word, crossword, orientation , row, column);
 	
-		//añadimos las correspondientes relaciones (uno a muchos)
+		//añadimos las correspondientes relaciones
 	    crossword.add(relacion);
-		word.add(relacion);
+	   // word.add(relacion);
+		
 		
 	}
 
@@ -90,6 +91,8 @@ public class CrosswordFacade implements AbstractCrosswordFacade<Crucigrama, Defi
 			lista.add(o);		
 		}
 			
+		
+		
 		
 		
 		

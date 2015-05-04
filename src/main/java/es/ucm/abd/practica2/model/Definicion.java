@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderColumn;
 
 
 
@@ -25,23 +27,23 @@ public class Definicion {
 	private Integer id;
 	
 	
-	@Column(nullable = false, length = 200)
+	@Column(length = 200)
 	private String enunciado;
 	
 	
-	@Column(nullable = false, length = 50)
+	@Column(length = 50)
 	private String respuesta;
 	
 	@Lob
 	private byte[] imagen;
 
-	
-	@Column(nullable = false)
+	@ElementCollection
+	@OrderColumn(name="etiqueta")
 	private String[] etiquetas;
 
 
 	
-	@OneToMany(mappedBy="definicion", cascade = CascadeType.REFRESH)
+	@OneToMany(mappedBy="definicion", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
 	private List<cruciContDef> contiene;
 
 	
@@ -50,9 +52,7 @@ public class Definicion {
 	
 	/*******CONSTRUCTORES***********/
 	
-	public Definicion(){	
-		contiene = new ArrayList<cruciContDef>();
-	}
+	public Definicion(){}
 	
 	public Definicion(Integer id, String enunciado, String respuesta, byte[]imagen, String[]etiquetas ){
 		this.id=id;

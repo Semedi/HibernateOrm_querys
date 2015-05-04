@@ -2,9 +2,9 @@ package es.ucm.abd.practica2.model;
 
 
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,13 +27,15 @@ public class cruciContDef {
 	private Definicion definicion;
 	
 	
-	@Enumerated
+	
+	
+	@Enumerated(EnumType.STRING)
 	private Orientation orientacion;
 	
-	@Column(nullable = false)
+	@Column
 	private Integer X;
 		
-	@Column(nullable = false)
+	@Column
 	private Integer Y;
 	
 	
@@ -52,16 +54,6 @@ public class cruciContDef {
 	}
 	
 	
-	public cruciContDef(Integer id, Definicion definicion, Crucigrama crucigrama, Orientation o, Integer x, Integer y){
-		
-		this.id = id;
-		this.definicion=definicion;
-		this.crucigrama=crucigrama;
-		this.orientacion=o;
-		this.X=x;
-		this.Y=y;
-		
-	}
 	
 	/******************************************/
 	
@@ -80,7 +72,7 @@ public class cruciContDef {
 	}
 
 	public Crucigrama get_crucigrama() {
-		return crucigrama;
+		return this.crucigrama;
 	}
 	
 	
