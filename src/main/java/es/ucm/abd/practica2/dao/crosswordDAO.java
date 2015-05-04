@@ -168,10 +168,40 @@ public class crosswordDAO implements AbstractCrosswordDAO<Crucigrama, Definicion
 	@Override
 	public List<Definicion> getMatchingWords(CharConstraint[] constraints) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		Session s = f.openSession();
+		Query query;
+		
+			if  (constraints.length == 0){
+			
+			query = s.createQuery("FROM Definicion");
+			return (List<Definicion>)query.list();
+						
+		}
+			
+		
+			
+			else {
+				/*
+				List<Definicion> lista = new ArrayList<Definicion>();
+				query = s.createQuery("FROM Definicion");
+				List<Definicion> lista2 = (List<Definicion>)query.list();
+				
+				for (Definicion d : lista2){
+					
+					
+					*/
+				}
+				
+				
+				
+			return null;
+			}
+			
+	
 	}
 	
 
 
 
-}
+
