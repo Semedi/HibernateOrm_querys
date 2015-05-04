@@ -83,9 +83,7 @@ public class crosswordDAO implements AbstractCrosswordDAO<Crucigrama, Definicion
 	public List<Object[]> getCrosswordData(String str) {
 		// TODO Auto-generated method stub
 		
-
-		 //Query query = s.createQuery("FROM Crucigrama where titulo LIKE '%str%'");
-		  // Query query =s.createQuery("SELECT c.id, c.fechacreacion"+"FROM Crucigrama AS c"+"WHERE c.titulo LIKE '%"+str+"%'"+" GROUP BY c.id");
+/*
 		
 		Session s = f.openSession();
 	
@@ -95,7 +93,7 @@ public class crosswordDAO implements AbstractCrosswordDAO<Crucigrama, Definicion
 		 List<Crucigrama> crucigramas = (List<Crucigrama>)query.list();
 		 
 		 List<Object []> resultado = new ArrayList<Object []>();
-		//query = s.createQuery("FROM CruciContDef WHERE crucigrama_id = :id ");
+	
 		
 		 for (Crucigrama c: crucigramas) {
 			 Object [] objeto= new Object[]{c.getIdCrucigrama(), c.getTitulo(), c.getFecha(),(long)c.getPalabras()};
@@ -107,31 +105,22 @@ public class crosswordDAO implements AbstractCrosswordDAO<Crucigrama, Definicion
 	
 		s.close();
 		
-			//SELECT id, titulo, fechacreacion, count(*) FROM `crucigrama` WHERE titulo like "%engua%" GROUP BY id
-
-
-		
 	
-			/*
-		Session s = f.openSession();
-		Query q = s.createQuery("SELECT c.id"
-		+ "FROM Crucigrama c JOIN c.contiene e JOIN e.votos vs "
-		+ "WHERE c.titulo LIKE %:cadena% "
-		+ "GROUP BY e.numeroTemporada, e.numeroEpisodio");
-		
-		
-		q.setString("id", str);
-		
-		
-		for (Object[] o : (List<Object[]>)q.list()) {
-		System.out.println(o[0] + ":" + o[1]);
-		}
-		s.close();
-		
+		return resultado;
 		
 		*/
 		
-		return resultado;
+		Session s = f.openSession();
+		Query query = s.createQuery("SELECT cross.id, cross.titulo, cross.fechaCreacion, sum(case when cross.id=cont.crucigrama.id then 1 else 0 END) "
+				+ "FROM Crucigrama as cross, cruciContDef as cont "
+				+ "WHERE cross.titulo LIKE :cadena "
+				+ "GROUP BY cross.id");
+		
+		
+		query.setString("cadena", "%"+str+"%");
+		
+		return query.list();
+		
 	}
 
 	@Override
