@@ -43,7 +43,7 @@ public class Definicion {
 
 
 	
-	@OneToMany(mappedBy="definicion", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="definicion", cascade = CascadeType.REFRESH, fetch=FetchType.EAGER)
 	private List<cruciContDef> contiene;
 
 	

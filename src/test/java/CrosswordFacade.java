@@ -36,7 +36,7 @@ public class CrosswordFacade implements AbstractCrosswordFacade<Crucigrama, Defi
 	
 		//añadimos las correspondientes relaciones
 	    crossword.add(relacion);
-	   // word.add(relacion);
+	    word.add(relacion);
 		
 		
 	}
