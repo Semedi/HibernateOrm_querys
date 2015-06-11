@@ -182,15 +182,17 @@ public class crosswordDAO implements AbstractCrosswordDAO<Crucigrama, Definicion
 		
 			
 			else {
-				/*
+				
 				List<Definicion> lista = new ArrayList<Definicion>();
 				query = s.createQuery("FROM Definicion");
 				List<Definicion> lista2 = (List<Definicion>)query.list();
 				
-				for (Definicion d : lista2){
+				int i = 0;
+				String cad;
+				
 					
 					
-					*/
+					
 				}
 				
 				
